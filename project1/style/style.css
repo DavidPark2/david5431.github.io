@@ -1,4 +1,22 @@
 .square {
   height: 30px;
   width: 30px;
+  border: 1px solid black;
+  margin: 1px 1px;
+}
+
+.row {
+  text-align: center;
+}
+/*
+.square:nth-child(odd) {
+  background-color: black;
+}*/
+
+.black {
+  background: #272727;
+}
+
+.white {
+  background: #f7f7f7;
 }

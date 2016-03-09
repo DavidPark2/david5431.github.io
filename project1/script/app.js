@@ -14,15 +14,41 @@ var board = [
 ];
 
 // html board
+var colorType;
 for (var i = 0; i < board.length; i++) {
   // build html row
   var div = $('<div class="row"></div>');
   for (var j = 0; j < board[i].length; j++) {
+    // making the board checkered colored
+    if ((i + 1) % 2 !== 0 && (j + 1) % 2 !== 0) {
+      colorType = 'white';
+    } else if ((i + 1) % 2 !== 0 && (j + 1) % 2 === 0) {
+      colorType = 'black';
+    } else if ((i + 1) % 2 === 0 && (j + 1) % 2 !== 0) {
+      colorType = 'black';
+    } else colorType = 'white';
+    // add images
+    // if (i === 1) {
+    //   $('div').append('<img src="img/Black Pawn.svg"></img>')
+    // } else if (i === 6) {
+    //   $('div').append('<img src="img/White Pawn.svg"></img>')
+    // }
     // fill cols
-    $(div).append('<div class="one column square">' + board[i][j] + '</div>');
+    $(div).append('<div class="one column square ' + colorType + '">' + board[i][j] + '</div>');
     $('.container').append(div);
   }
 }
+////////////////////
+////////////////////
+
+//// Whether board has piece
+function isInArray(value, array) {
+  return array.indexOf(value) > -1;
+}
+
+//////////////////////////////////
+// Pawn
+//////////////////////////////////
 
 //// Pawn moves 2 spaces
 var forwardTwoPawn = function(column, color) {
@@ -62,12 +88,13 @@ var movePawn = function(locationOnBoard) {
   // or forwardTwoPawn();
 }
 
-
+////////////////////////////////////////
+// Loading the DOM
+////////////////////////////////////////
 
 $(document).ready(function() {
   console.log("All resources are loaded");
   console.log(board);
-  forwardTwoPawn(4, 'black');
 });
 
 
@@ -87,9 +114,3 @@ $(document).ready(function() {
 //     }
 //   }
 // }
-
-// //// Whether board has piece
-// function isInArray(value, array) {
-//   return array.indexOf(value) > -1;
-// }
-//
