@@ -14,32 +14,50 @@ var board = [
 ];
 
 // html board
-var colorType;
-for (var i = 0; i < board.length; i++) {
-  // build html row
-  var div = $('<div class="row"></div>');
-  for (var j = 0; j < board[i].length; j++) {
-    // making the board checkered colored
-    if ((i + 1) % 2 !== 0 && (j + 1) % 2 !== 0) {
-      colorType = 'white';
-    } else if ((i + 1) % 2 !== 0 && (j + 1) % 2 === 0) {
-      colorType = 'black';
-    } else if ((i + 1) % 2 === 0 && (j + 1) % 2 !== 0) {
-      colorType = 'black';
-    } else colorType = 'white';
-    // add images
-    // if (i === 1) {
-    //   $('div').append('<img src="img/Black Pawn.svg"></img>')
-    // } else if (i === 6) {
-    //   $('div').append('<img src="img/White Pawn.svg"></img>')
-    // }
-    // fill cols
-    $(div).append('<div class="one column square ' + colorType + '">' + board[i][j] + '</div>');
-    $('.container').append(div);
+function boards() {
+  var colorType;
+  for (var i = 0; i < board.length; i++) {
+    // build html row
+    var div = $('<div class="row"></div>');
+    for (var j = 0; j < board[i].length; j++) {
+      // making the board checkered colored
+      if ((i + 1) % 2 !== 0 && (j + 1) % 2 !== 0) {
+        colorType = 'white';
+      } else if ((i + 1) % 2 !== 0 && (j + 1) % 2 === 0) {
+        colorType = 'black';
+      } else if ((i + 1) % 2 === 0 && (j + 1) % 2 !== 0) {
+        colorType = 'black';
+      } else colorType = 'white';
+      // fill cols
+      $(div).append('<div class="one column square '+ [i] + [j] + ' ' + colorType + '">' + board[i][j] + '</div>');
+      $('.container').append(div);
+    }
   }
 }
 ////////////////////
+// adding images
 ////////////////////
+function img() {
+  // add images
+  // White Pieces
+  for (var i = 10; i < 18; i++) {
+    $('.' + i).html('<img class="pieces" src="img/White Pawn.svg" />');
+  }
+  $('.00, .07').html('<img class="pieces" src="img/White Rook.svg" />');
+  $('.01, .06').html('<img class="pieces" src="img/White Knight.svg" />');
+  $('.02, .05').html('<img class="pieces" src="img/White Bishop.svg" />');
+  $('.03').html('<img class="pieces" src="img/White Queen.svg" />');
+  $('.04').html('<img class="pieces" src="img/White King.svg" />');
+  // Black Pieces
+  for (var i = 60; i < 68; i++) {
+    $('.' + i).html('<img class="pieces" src="img/Black Pawn.svg" />');
+  }
+  $('.70, .77').html('<img class="pieces" src="img/Black Rook.svg" />');
+  $('.71, .76').html('<img class="pieces" src="img/Black Knight.svg" />');
+  $('.72, .75').html('<img class="pieces" src="img/Black Bishop.svg" />');
+  $('.73').html('<img class="pieces" src="img/Black Queen.svg" />');
+  $('.74').html('<img class="pieces" src="img/Black King.svg" />');
+}
 
 //// Whether board has piece
 function isInArray(value, array) {
@@ -94,7 +112,8 @@ var movePawn = function(locationOnBoard) {
 
 $(document).ready(function() {
   console.log("All resources are loaded");
-  console.log(board);
+  boards();
+  img();
 });
 
 
