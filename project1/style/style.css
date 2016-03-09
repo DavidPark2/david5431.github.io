@@ -1,7 +1,4 @@
-.black {
-  background-color: black;
-}
-
-.white {
-  background-color: white;
+.square {
+  height: 30px;
+  width: 30px;
 }
