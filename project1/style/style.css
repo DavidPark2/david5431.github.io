@@ -1,6 +1,6 @@
 .square {
   height: 30px;
-  width: 30px;
+  width: 30px !important;
   border: 1px solid black;
   margin: 1px 1px;
 }
@@ -14,7 +14,7 @@
 }*/
 
 .black {
-  background: #272727;
+  background: #484848;
 }
 
 .white {

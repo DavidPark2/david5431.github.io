@@ -43,25 +43,37 @@ function img() {
   for (var i = 10; i < 18; i++) {
     $('.' + i).html('<img class="pieces" src="img/White Pawn.svg" />');
   }
-  $('.00, .07').html('<img class="pieces" src="img/White Rook.svg" />');
-  $('.01, .06').html('<img class="pieces" src="img/White Knight.svg" />');
-  $('.02, .05').html('<img class="pieces" src="img/White Bishop.svg" />');
-  $('.03').html('<img class="pieces" src="img/White Queen.svg" />');
-  $('.04').html('<img class="pieces" src="img/White King.svg" />');
+  $('.00, .07').html('<img class="pieces" draggable="true" src="img/White Rook.svg" />');
+  $('.01, .06').html('<img class="pieces" draggable="true" src="img/White Knight.svg" />');
+  $('.02, .05').html('<img class="pieces" draggable="true" src="img/White Bishop.svg" />');
+  $('.03').html('<img class="pieces" draggable="true" src="img/White Queen.svg" />');
+  $('.04').html('<img class="pieces" draggable="true" src="img/White King.svg" />');
   // Black Pieces
   for (var i = 60; i < 68; i++) {
-    $('.' + i).html('<img class="pieces" src="img/Black Pawn.svg" />');
+    $('.' + i).html('<img class="pieces" draggable="true" src="img/Black Pawn.svg" />');
   }
-  $('.70, .77').html('<img class="pieces" src="img/Black Rook.svg" />');
-  $('.71, .76').html('<img class="pieces" src="img/Black Knight.svg" />');
-  $('.72, .75').html('<img class="pieces" src="img/Black Bishop.svg" />');
-  $('.73').html('<img class="pieces" src="img/Black Queen.svg" />');
-  $('.74').html('<img class="pieces" src="img/Black King.svg" />');
+  $('.70, .77').html('<img class="pieces" draggable="true" src="img/Black Rook.svg" />');
+  $('.71, .76').html('<img class="pieces" draggable="true" src="img/Black Knight.svg" />');
+  $('.72, .75').html('<img class="pieces" draggable="true" src="img/Black Bishop.svg" />');
+  $('.73').html('<img class="pieces" draggable="true" src="img/Black Queen.svg" />');
+  $('.74').html('<img class="pieces" draggable="true" src="img/Black King.svg" />');
 }
 
-//// Whether board has piece
-function isInArray(value, array) {
-  return array.indexOf(value) > -1;
+////////////////////////////
+// drag and Drop
+////////////////////////////
+$(init);
+function init() {
+  $('.pieces').draggable( {
+    // containment: '.square'
+  });
+}
+
+///////////////////
+
+function handleDropEvent( event, ui ) {
+  var draggable = ui.draggable;
+  alert( 'The square with ID "' + draggable.attr('id') + '" was dropped onto me!' );
 }
 
 //////////////////////////////////
@@ -114,6 +126,7 @@ $(document).ready(function() {
   console.log("All resources are loaded");
   boards();
   img();
+  init();
 });
 
 
