@@ -78,85 +78,82 @@ function img() {
 // Black pieces id=2-17
 // White pieces id=60-75
 var app = app || {};
-var myIdArray = []
+// var location = [];
 
 function dragAndDrop() {
   app.piece = $('.pieces');
   app.square = $('.square');
 
-  console.log(app.piece)
-
   $(app.piece).on('drag', function(evt) {
     evt.preventDefault()
     // console.log(app.piece[0]+ " --------------------------------------")
     // console.log('drag');
-    console.log($(this))
+    // console.log($(this));
     app.piece = $(this)
   })
 
   $(app.piece).on('dragend', function(evt) {
-    console.log('dragend');
+    // console.log('dragend');
   })
 
   $(app.square).on('dragover', function(evt) {
     evt.preventDefault();
-    console.log('In the square');
+    // console.log('In the square');
   })
 
   $(app.square).on('dragleave', function(evt) {
-    console.log("don't leave!!!");
+    // console.log("don't leave!!!");
   })
 
   $(app.square).on('drop', function(evt) {
     evt.preventDefault()
+    $(this).empty();
     $(this).append(app.piece);
-    console.log('dropped!');
-    console.log(evt);
   })
 }
 
-//////////////////////////////////
-// Pawn
-//////////////////////////////////
-
-//// Pawn moves 2 spaces
-var forwardTwoPawn = function(column, color) {
-  // starting position for black
-  if (color === 'black') {
-    board[1][column] = '';
-    $('.' + 1 + column).children().remove();
-    board[3][column] = 'bp';
-  // starting position for white
-  } else if (color === 'white') {
-    board[6][column] = '';
-    board[4][column] = 'wp';
-  }
-}
-//// Pawn moves 1 space
-var forwardOnePawn = function(column, row, color) {
-  // black moves
-  if (color === 'black') {
-    if (isInArray('bp', board[row][column])) {
-      board[row][column] = '';
-      board[row + 1][column] = 'bp';
-    }
-  // white moves
-  } else if (color === 'white') {
-    if (isInArray('wp', board[row][column])) {
-      board[row][column] = '';
-      board[row - 1][column] = 'wp';
-    }
-  }
-}
-
-// locationOnBoard board[x][y]
-// <div data-board="x[y]"></div>
-// $(el).data('board') => 'x[y]'
-var movePawn = function(locationOnBoard) {
-  // figure out where it is being moved
-  // then call forwardOnePawn()
-  // or forwardTwoPawn();
-}
+// //////////////////////////////////
+// // Pawn
+// //////////////////////////////////
+//
+// //// Pawn moves 2 spaces
+// var forwardTwoPawn = function(column, color) {
+//   // starting position for black
+//   if (color === 'black') {
+//     board[1][column] = '';
+//     $('.' + 1 + column).children().remove();
+//     board[3][column] = 'bp';
+//   // starting position for white
+//   } else if (color === 'white') {
+//     board[6][column] = '';
+//     board[4][column] = 'wp';
+//   }
+// }
+// //// Pawn moves 1 space
+// var forwardOnePawn = function(column, row, color) {
+//   // black moves
+//   if (color === 'black') {
+//     if (isInArray('bp', board[row][column])) {
+//       board[row][column] = '';
+//       board[row + 1][column] = 'bp';
+//     }
+//   // white moves
+//   } else if (color === 'white') {
+//     if (isInArray('wp', board[row][column])) {
+//       board[row][column] = '';
+//       board[row - 1][column] = 'wp';
+//     }
+//   }
+// }
+//
+// // locationOnBoard board[x][y]
+// // <div data-board="x[y]"></div>
+// // $(el).data('board') => 'x[y]'
+// var movePawn = function(locationOnBoard) {
+//   // figure out where it is being moved
+//   // then call forwardOnePawn()
+//   // or forwardTwoPawn();
+// }
 
 ////////////////////////////////////////
 // Loading the DOM
