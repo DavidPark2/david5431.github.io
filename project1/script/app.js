@@ -2,6 +2,9 @@
 // white bottom
 // top left corner = board[0][0]
 // bottom right corner = board[7][7]
+//////////////////////////////////////////////////////////////////
+// board
+//////////////////////////////////////////////////////////////////
 var board = [
   ['br', 'bn', 'bb', 'bq', 'bk', 'bb', 'bn', 'br'],
   ['bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp', 'bp'],
@@ -34,9 +37,9 @@ function boards() {
     }
   }
 }
-////////////////////
+////////////////////////////////////////////////////////////
 // adding images
-////////////////////
+////////////////////////////////////////////////////////////
 function img() {
   // add images
   // White Pieces
@@ -71,12 +74,9 @@ function img() {
   $('.07').html('<img class="pieces"' + ' ' + 'id=' + 2 + ' ' + ' src="img/Black Rook.svg" />');
 }
 
-///////////////////
+///////////////////////////////////////////////////////////
 // drag and drop
-//////////////////
-// change this to directly target pieces!!!!!!!!!!!!!!!!!!!!!!!!!
-// Black pieces id=2-17
-// White pieces id=60-75
+///////////////////////////////////////////////////////////
 var app = app || {};
 // var location = [];
 
@@ -86,9 +86,8 @@ function dragAndDrop() {
 
   $(app.piece).on('drag', function(evt) {
     evt.preventDefault()
-    // console.log(app.piece[0]+ " --------------------------------------")
     // console.log('drag');
-    // console.log($(this));
+
     app.piece = $(this)
   })
 
@@ -110,6 +109,14 @@ function dragAndDrop() {
     $(this).empty();
     $(this).append(app.piece);
   })
+}
+
+//////////////////////////////////////////////////////////////////
+// Win
+//////////////////////////////////////////////////////////////////
+// Black king = #5, White King = #72
+function win() {
+  $('#5').on()
 }
 
 // //////////////////////////////////
@@ -165,6 +172,7 @@ $(document).ready(function() {
   img();
   console.log(board);
   dragAndDrop();
+  win();
 });
 
 
