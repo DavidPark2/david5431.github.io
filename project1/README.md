@@ -1,40 +1,42 @@
-# First Project - Chess
+# Chess
 
-## **Outline**
-1. Making the board
-  * 8x8 board
-    - 2 dimensional array
-2. Pieces
-  * For now, I will create ~~3~~ 1 piece
-    - ~~**King** - This piece can move one spot forward, backward, left, right and diagonal in any direction~~
-    - ~~**Rook** - This piece can move any amount of space forward, backward, left and right~~
-    - **Pawn** - This piece can move 1 or 2 spot forward on the first move, and then only 1 spot forward after that
-3. Moving the Pieces
-  * When pieces are clicked, highlight where it can move
-  * To move the pieces, you can either click and drag the piece or click the piece and then click the place you want to move it to
-  * If the piece can't move to the location selected, move the piece back to where it was
-4. Winning
-  * To win the game, you must either checkmate the king or the opposing player must forfeit
-5. Stalemate
-  * Three-fold Repetition = If position has been repeated 3 times, it may result in a draw
-    - A draw button will appear
-  * When a player is not in a check, and can no longer make a move
-  * Or if the players agree to draw
+## Technologies used
+  * html
+  * CSS
+  * JavaScript
+  * jQuery
+  * Skeleton
 
-## **Pseudocode**
-1. Make the board with 2-dimensional array
-2. In the correct starting position, get img and place pawns, rooks and king in correct position
-  * give classes to each piece
-3. How to access board from app.js
-  * Create a 2 dimensional array with the created classes
-4. Create the following pieces in a function: ~~King, Rook and~~ Pawn
-  * Pawn =
-5. Who moves?
-  * Create a loop with a counter
-    - If even, white moves
-    - If odd, black moves
-6. How to move pieces - How to do this?????
-  * Click the piece and drag
-  * Click the piece and click the square you want the piece to go to
-7. Collision Detection?????????
-8. Drag and Drop????????
+## Approach Taken
+  * I started creating a 2 dimensional array that represented the board.  Then I looped it to html.  I appended each chess piece to the board.  Then I implemented drag and drop.
+
+## Installation Instructions
+  * Clone this repository
+  * Navigate to the directory
+  * Open html file with your favorite browser
+
+## Unfinished Work
+  * Use 2d collision detection to prevent pawns from going forward if theres a piece one square ahead of it, to detect if the king has been taken off the board, and to prevent pieces, other then the knight, to continue to go past pieces, if it's in the way.
+  * Write functions for each piece, so it can only do legal moves
+    - **Pawns** - If it's on the starting square, it can move either 1 or 2 square forward, otherwise it can only move 1 square forward
+    <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=92"></iframe>
+      * This piece can only take pieces diagonally
+    - **Bishop** - It can only move diagonally as far as it wants
+    <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=76"></iframe>
+    - **Knight** - It can move in a L, starting with 2 squares in one direction and one more square at a 90 degree angle
+    <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=77"></iframe>
+    - **Rook** - It can only move forward, backward, and to the side as far as it wants
+    <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=90"></iframe>
+    - **Queen** - It can move forward, backward, diagonally and to the side as far as it wants
+    <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=74"></iframe>
+    - **King** - It can move one square forward, backward, diagonally and to the side from its current position
+    <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=73"></iframe>
+  * Write a function for castling
+  <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=84"></iframe>
+  * Write a function for pawn promotion
+  <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=80"></iframe>
+  * Write a function en passant
+  <iframe border="0" frameborder="0" allowtransparency="true" width="620" height="410" src="https://www.chess.com/emboard?id=81"></iframe>
+  * Write a function for stalemate
+  * Put a timer into the game
+  * Put a text field that writes the moves each player did each turn

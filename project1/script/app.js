@@ -115,9 +115,9 @@ function dragAndDrop() {
 // Win
 //////////////////////////////////////////////////////////////////
 // Black king = #5, White King = #72
-function win() {
-  $('#5').on()
-}
+// function win() {
+//   $('#5').on()
+// }
 
 // //////////////////////////////////
 // // Pawn
@@ -172,7 +172,7 @@ $(document).ready(function() {
   img();
   console.log(board);
   dragAndDrop();
-  win();
+  // win();
 });
 
 
